@@ -3,24 +3,41 @@ import VueRouter from 'vue-router'
 import LicitationView from "../views/LicitationView.vue";
 import FormView from "../views/FormView.vue"
 import DetailView from "../views/DetailView.vue"
+import EditItemView from "../views/EditItemView.vue"
+import PageNotFound from "../views/PageNotFound.vue"
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: "/",
-    name: "licitation",
+    name: "Home",
+    redirect: "/licitation",
+  },
+  {
+    path: "/licitation",
+    name: "Licitation",
     component: LicitationView,
   },
   {
-    path: "/form",
-    name: "form",
+    path: "/licitation/form",
+    name: "FormLicitation",
     component: FormView,
   },
   {
-    path: "/detail",
-    name: "detail",
+    path: "/licitation/detail/:licitationId",
+    name: "DetailLicitation",
     component: DetailView,
+  },
+  {
+    path: "/licitation/detail/edit/:licitationId",
+    name: "DetailLicitationId",
+    component: EditItemView,
+  },
+  {
+    path: "/**",
+    name: "PageNotFound",
+    component: PageNotFound,
   },
 ];
 
