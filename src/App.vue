@@ -8,6 +8,18 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  created() {
+    this.$http.get('/licitation').then((response) => {
+      console.log(response);
+    } )
+  }
+}
+
+</script>
+
 <style>
 
 </style>
