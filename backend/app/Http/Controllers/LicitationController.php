@@ -16,4 +16,18 @@ class LicitationController extends Controller
             'code' => 200,
         ]);
     }
+
+    public function detailIdLicitation($id)
+    {
+        $licitation = Lic::find($id);
+
+        if (!$licitation) {
+            return response()->json([
+                'message' => 'Licitation not found',
+                'code' => 404
+            ], 404);
+        }
+
+        return response()->json($licitation);
+    }
 }
