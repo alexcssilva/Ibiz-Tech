@@ -56,4 +56,30 @@ class LicitationController extends Controller
             ]);
         }
     }
+
+    public function editLicitation($id, Request  $request)
+    {
+        try {
+            $licitation  = Lic::find($id);
+            $licitation->nu_fase  =  $request->input('nu_fase');
+            $licitation->nu_edital  =  $request->input('nu_edital');
+            $licitation->modalidade  =  $request->input('modalidade');
+            $licitation->data_abertura  =  $request->input('data_abertura');
+            $licitation->nome_licitador  =  $request->input('nome_licitador');
+            $licitation->cnpj_licitador  =  $request->input('cnpj_licitador');
+            $licitation->prioridade  =  $request->input('prioridade');
+            $licitation->objeto  =  $request->input('objeto');
+            $licitation->save();
+
+            return response()->json([
+                'message'  =>  'Licitation updated successfully',
+                'code'  =>  201
+            ]);
+        } catch (\Exception  $error) {
+            return response()->json([
+                $error  =>  'Failed to update licitation',
+                'code'  =>  500
+            ]);
+        }
+    }
 }
