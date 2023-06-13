@@ -9,6 +9,8 @@ class Lic extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_lic';
+
     protected $fillable = [
         'id_lic',
         'nu_fase',
