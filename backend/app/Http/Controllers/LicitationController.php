@@ -75,11 +75,31 @@ class LicitationController extends Controller
                 'message'  =>  'Licitation updated successfully',
                 'code'  =>  201
             ]);
-        } catch (\Exception  $error) {
+        } catch (\Exception  $e) {
             return response()->json([
-                $error  =>  'Failed to update licitation',
+                'message'  =>  'Failed to update licitation',
                 'code'  =>  500
             ]);
         }
+    }
+
+    public function deleteLicitation($id)
+    {
+        $licitation  = Lic::find($id);
+
+        try {
+            if ($licitation) {
+                $licitation->delete($licitation);
+                return response()->json([
+                    'message' => 'Licitation deleted successfully',
+                    'code' => 200
+                ]);
+            }
+        } catch (\Exception $e) {
+        }
+        return response()->json([
+            'message' => 'Licitation does not exist',
+            'code' => 200
+        ]);
     }
 }
