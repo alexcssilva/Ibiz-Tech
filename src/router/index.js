@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LicitationView from "../views/LicitationView.vue";
 import FormView from "../views/FormView.vue"
-import DetailView from "../views/DetailView.vue"
-import EditItemView from "../views/EditItemView.vue"
+import LicitationDetail from "../components/LicitationDetail.vue";
+import LicitationEdit from "../components/LicitationEdit.vue";
 import PageNotFound from "../views/PageNotFound.vue"
 
 Vue.use(VueRouter)
@@ -25,14 +25,14 @@ const routes = [
     component: FormView,
   },
   {
-    path: "/licitation/detail/:licitationId",
-    name: "DetailLicitation",
-    component: DetailView,
+    path: "/licitation/detail/:id_lic",
+    name: "LicitationDetail",
+    component: LicitationDetail,
   },
   {
-    path: "/licitation/detail/edit/:licitationId",
-    name: "DetailLicitationId",
-    component: EditItemView,
+    path: "/licitation/detail/edit/:id_lic",
+    name: "LicitationEdit",
+    component: LicitationEdit,
   },
   {
     path: "/**",
