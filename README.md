@@ -55,19 +55,27 @@ Certifique-se de ter o seguinte software instalado em sua máquina ou Docker com
 
  1. No arquivo `.env.example` altere o nome do arquivo para `.env`com suas informações de ambiente como:
 
-    APP_URL=http://localhost<br>
-    DB_CONNECTION=mysql pgsql<br>
-    DB_HOST=127.0.0.1<br>
-    DB_PORT=3306<br>
-    DB_DATABASE=laravel_api<br>
-    DB_USERNAME=seu_usuario<br>
-    DB_PASSWORD=sua_senha<br>
+    APP_URL=http://localhost
+    DB_CONNECTION=mysql pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel_api
+    DB_USERNAME=seu_usuario
+    DB_PASSWORD=sua_senha
 
  ### API
 
+**Iniciar servidor local**
+
+    php artisan serve
+    
 **Popular o banco de dados**
 
     php artisan db:seed --class=LicitationsSeeder
+
+**Build Frondend**
+
+    npm run serve
 
 **Endpoints**
 
